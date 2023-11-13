@@ -45,7 +45,7 @@ void bluepop() {
 
 void bluesize() {
     if (top1 >= 0 && top1 <= 10) {
-        cout << "Size of the stack: " << top1 + 1 << "\n";
+        cout << "Size of the blue stack: " << top1 + 1 << "\n";
     }
     else
         cout << "Stack is empty";
@@ -54,16 +54,16 @@ void bluesize() {
 
 void redsize() {
     if (top >= 10) {
-        cout << "Size of the stack: " << top - 9 << "\n";
+        cout << "size of the red stack: " << top - 9 << "\n";
     }
     else
         cout << "Stack is empty";
 }
 
 void bluedisplay() {
-    if (top >= 0) {
+    if (top1 >= 0) {
         cout << "Blue stack elements are: ";
-        for (int i = top; i >= 0; i--)
+        for (int i = top1; i >= 0; i--)
             cout << HollowPurple[i] << " ";
         cout << endl;
     }
@@ -83,15 +83,46 @@ void reddisplay() {
 }
 int main()
 {
-    redpush("T-shirts");
-    redpush("T-shirts");
-    bluepush("headsets");
-    redpush("iphone");
-    bluepush("yes");
-    redsize();
-    bluesize();
-    reddisplay();
-    bluedisplay();
+    while (true) {
+        string monkey;
 
+        cout << "press 1 to add to the blue stack, 2 to the red stack or 3 to display the stacks: " << endl;
+        cin >> monkey;
+        if (monkey == "1") {
+            cin >> monkey;
+            bluepush(monkey);
+        }
+         
+
+        else if (monkey == "2") {
+            cin >> monkey;
+            redpush(monkey);
+        }
+            
+
+        else if (monkey == "3") {
+            cout << "press 1 to display blue stack, 2 for the red stack or 3 for both of them: " << endl;
+            cin >> monkey;
+            if (monkey == "1") {
+                bluedisplay();
+                bluesize();
+            }
+                
+            else if (monkey == "2") {
+                reddisplay();
+                redsize();
+            }
+             
+            else if (monkey == "3") {
+                reddisplay();
+                redsize();
+                bluedisplay();
+                bluesize();
+            }
+            
+        }
+            
+
+    }
 }
 
